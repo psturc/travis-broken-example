@@ -11,13 +11,13 @@ before_install:
   - npm install -g fh-npm@0.0.9-41
   # fh-npm build test
   - fhnpm="`which node` `which npm`"
-  - fhnpm_install="install --production --strict-ssl=false --cache=$(dirname `pwd`)/fhnpm_install_cache"
-  - fhnpm_cache=$(dirname `pwd`)/fhnpm_cache
+  - fhnpm_install="install --production --strict-ssl=false --cache=$HOME/.fh-npm/fhnpm_install_cache"
+  - fhnpm_cache="$HOME/.fh-npm/fhnpm_cache"
   - dynodir=`pwd`
-  - echo "fhnpm "$fhnpm
-  - echo "npminstall "$fhnpm_install
-  - echo "npmcache "$fhnpm_cache
-  - echo "dyno "$dynodir
+  - echo "fhnpm: "$fhnpm
+  - echo "npminstall: "$fhnpm_install
+  - echo "npmcache: "$fhnpm_cache
+  - echo "dyno: "$dynodir
   - fh-npm --npm="$fhnpm" --install="$fhnpm_install" --dir="$dynodir" --cache="$fhnpm_cache"
   # s2i dependencies installation
   - sudo apt-get install golang -y
