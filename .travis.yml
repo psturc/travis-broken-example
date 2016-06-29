@@ -6,9 +6,7 @@ node_js:
   - "0.10"
   - "4.4.3"
 before_install:
-  - pwd
   - npm install -g npm@2.13.5
-  - npm install -g grunt-cli
   # fh-npm dependency installation
   - npm install -g fh-npm@0.0.9-41
   # fh-npm build test
