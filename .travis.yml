@@ -16,6 +16,10 @@ before_install:
   - fhnpm_install="install --production --strict-ssl=false --cache=$(dirname `pwd`)/fhnpm_install_cache"
   - fhnpm_cache=$(dirname `pwd`)/fhnpm_cache
   - dynodir=`pwd`
+  - echo $fhnpm
+  - echo $fhnpm_install
+  - echo $fhnpm_cache
+  - echo $dynodir
   - mkdir $(dirname `pwd`)/fhnpm_install_cache $(dirname `pwd`)/fhnpm_cache
   - ls -la ..
   - fh-npm # --npm=$fhnpm --install=$fhnpm_install --cache=$fhnpm_cache --dir=$dynodir 
