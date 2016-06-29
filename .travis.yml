@@ -17,7 +17,7 @@ before_install:
   # fh-npm build test
   - fhnpm="`which node` `which npm`"
   - fhnpm_install="install --production --strict-ssl=false --cache=$(dirname `pwd`)/fhnpm_install_cache"
-  - fhnpm_cache=$(dirname `pwd`)/fhnpm_install_cache
+  - fhnpm_cache=$(dirname `pwd`)/fhnpm_cache
   - dynodir=`pwd`
   - fh-npm --npm=$fhnpm --install=$fhnpm_install --cache=$fhnpm_cache --dir=$dynodir
   # s2i build test
