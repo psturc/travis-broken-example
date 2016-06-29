@@ -13,4 +13,6 @@ before_install:
   - go version
   - curl -L https://github.com/openshift/source-to-image/releases/download/v1.0.9/source-to-image-v1.0.9-f9ff77d-linux-amd64.tar.gz | tar -xz
   - ./s2i build https://github.com/psturc/travis-broken-example openshift/nodejs-010-centos7 sample-test
+  - fh-npm
 install: npm install
+  
