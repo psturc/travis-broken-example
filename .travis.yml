@@ -6,13 +6,23 @@ node_js:
   - "0.10"
   - "4.4.3"
 before_install:
+  - pwd
   - npm install -g npm@2.13.5
   - npm install -g grunt-cli
+  # fh-npm dependency installation
   - npm install -g fh-npm@0.0.9-41
+  # s2i dependencies installation
   - sudo apt-get install golang -y
-  - go version
   - curl -L https://github.com/openshift/source-to-image/releases/download/v1.0.9/source-to-image-v1.0.9-f9ff77d-linux-amd64.tar.gz | tar -xz
+  # fh-npm build test
+  - fhnpm="`which node` `which npm`"
+  - fhnpm_install="install --production --strict-ssl=false --cache=$(dirname `pwd`)/fhnpm_install_cache"
+  - fhnpm_cache=$(dirname `pwd`)/fhnpm_install_cache
+  - dynodir=`pwd`
+  - fh-npm --npm=$fhnpm --install=$fhnpm_install --cache=$fhnpm_cache --dir=$dynodir
+  # s2i build test
+  
   - ./s2i build https://github.com/psturc/travis-broken-example openshift/nodejs-010-centos7 sample-test
-  - fh-npm
+  - 
 install: npm install
   
