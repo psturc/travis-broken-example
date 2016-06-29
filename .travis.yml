@@ -21,7 +21,7 @@ before_install:
   - dynodir=`pwd`
   - mkdir $(dirname `pwd`)/fhnpm_install_cache $(dirname `pwd`)/fhnpm_cache
   - ls -la ..
-  - fh-npm --install=$fhnpm_install --cache=$fhnpm_cache --dir=$dynodir # --npm=$fhnpm 
+  - fh-npm --npm=$fhnpm# --install=$fhnpm_install --cache=$fhnpm_cache --dir=$dynodir 
   # s2i build test
   - ./s2i build https://github.com/psturc/travis-broken-example openshift/nodejs-010-centos7 sample-test
 install: npm install
