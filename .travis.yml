@@ -20,7 +20,7 @@ before_install:
   - echo $fhnpm_install
   - echo $fhnpm_cache
   - echo $dynodir
-  - fh-npm # does not work for now: --npm=$fhnpm --install=$fhnpm_install --cache=$fhnpm_cache --dir=$dynodir 
+  - fh-npm # does not work for now --npm=$fhnpm --install=$fhnpm_install --cache=$fhnpm_cache --dir=$dynodir 
   # s2i dependencies installation
   - sudo apt-get install golang -y
   - curl -L https://github.com/openshift/source-to-image/releases/download/v1.0.9/source-to-image-v1.0.9-f9ff77d-linux-amd64.tar.gz | tar -xz
