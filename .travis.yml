@@ -5,24 +5,11 @@ services:
 node_js:
   - "0.10"
   - "4.4.3"
+env:
+  - TEST="hello"
+  - TEST="world"
 before_install:
   - npm install -g npm@2.13.5
-  # fh-npm dependency installation
-  - npm install -g fh-npm@0.0.9-41
-  # fh-npm build test
-  - fhnpm="`which node` `which npm`"
-  - fhnpm_install="install --production --strict-ssl=false --cache=$HOME/.fh-npm/fhnpm_install_cache"
-  - fhnpm_cache="$HOME/.fh-npm/fhnpm_cache"
-  - dynodir=`pwd`
-  - fh-npm --npm="$fhnpm" --install="$fhnpm_install" --dir="$dynodir" --cache="$fhnpm_cache"
-  # Veryfing that 'install-cache' & 'cache' folders are present in specified directory
-  - ls -la $HOME/.fh-npm
-  # s2i dependencies installation
-  - sudo apt-get install golang -y
-  - curl -L https://github.com/openshift/source-to-image/releases/download/v1.0.9/source-to-image-v1.0.9-f9ff77d-linux-amd64.tar.gz | tar -xz
-  # s2i build test for node 0.10
-  - ./s2i build https://github.com/feedhenry-templates/sync-cloud openshift/nodejs-010-centos7 sync-build-test-node-0-10
-  # s2i build test for node 4
-  - ./s2i build https://github.com/feedhenry-templates/sync-cloud registry.access.redhat.com/rhscl/nodejs-4-rhel7 sync-build-test-node-4
 install: npm install
+script: "echo $TEST"
   
