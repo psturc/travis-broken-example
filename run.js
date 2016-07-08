@@ -2,7 +2,7 @@ var exec = require('child_process').exec;
 
 var runningScript = exec('test.sh', function(err) {
   if (err) {
-    console.error("Error when running a script: ", err);
+    throw new Error('oh no!');
     return false;
   }
 });
