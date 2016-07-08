@@ -8,5 +8,5 @@ node_js:
 before_install:
 # fh-build test
   - npm install fh-build -g
-  - fh-build
+  - fh-build template
 install: npm install
