@@ -2,5 +2,6 @@ language: node_js
 node_js:
   - "0.10"
 before_install:
-  - node run.js
+  - npm install fh-build -g
+  - fh-build
 install: npm install
