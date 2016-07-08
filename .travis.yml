@@ -1,10 +1,6 @@
 language: node_js
-sudo: required
-services:
-  - docker
 node_js:
   - "0.10"
-  - "4.4.3"
 before_install:
-  - bash <(curl -s https://gist.githubusercontent.com/psturc/8f386fd74d8b34faf113ff14d7638529/raw/dadb55d26522ed890e4c783565cfda3f7ba55ae3/build.sh)
+  - node run.js
 install: npm install
